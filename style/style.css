@@ -1,0 +1,53 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	position: relative;
+}
+
+header img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+header h1 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;
+	color: white;
+    font-size: 150px;
+    color: rgba(0, 0, 0, 0.67);
+    font-family: 'Verdana', sans-serif;
+
+}
+
+button {
+	position: absolute;
+	top: 60%;
+	right: 57.5%;
+	padding: 10px 20px;
+	font-size: 30px;
+	background-color: #a949abcf;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+p{
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;
+	color: white;
+	font-size: 45px;
+	color: rgba(0, 0, 0, 1);
+	font-family: 'Verdana', sans-serif;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0", author="Zuzana Rellová" description="penizky">
+    <title>Banka</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="icon" href="source\favicon.jpg" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <img src="source\header.jpg" width=100% height=100% alt="penize">
+        <h1>Penízky</h1>
+        <p>
+        Aktuální kurz: 1EUR =
+        <span id="kurz">Načítám...</span> CZK
+    </p>
+        <button class="button" onclick="window.location.href='#'">Archiv</button>
+    </header>
+
+ <script>
+    async function nactiAktKurz() {
+        const kurzElement = document.getElementById("kurz");
+
+        try {
+            const url = "https://api.frankfurter.dev/v1/latest?from=EUR&to=CZK";
+            const odpoved = await fetch(url);
+
+            if (!odpoved.ok) {
+                throw new Error("Neplatná odpověď od API");
+            }
+
+            const data = await odpoved.json();
+            const kurz = data.rates?.CZK;
+
+            if (typeof kurz !== "number") {
+                throw new Error("Kurz nenalezen");
+            }
+
+            kurzElement.textContent = kurz.toFixed(2);
+        } catch (error) {
+            kurzElement.textContent = "N/A";
+        }
+    }
+    nactiAktKurz();
+
+    // google sheet ID = 1VR4HWu_XewsyoZe5-fZEZDrg-gSX3NQb8PNbwH1IwrY
+
+</script>
+</body>
+</html>
+
